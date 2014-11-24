@@ -26,7 +26,7 @@ group :development do
  gem 'capistrano', github: 'capistrano/capistrano', ref: 'master'
  gem 'capistrano-rails', github: 'capistrano/rails', ref: 'master'
  gem 'capistrano-bundler'
- gem 'capistrano-rbenv', "~> 2.0"
+ gem 'capistrano-rbenv'
  gem 'capistrano3-unicorn'
  gem 'pry'
 end

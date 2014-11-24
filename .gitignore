@@ -12,7 +12,8 @@ rerun.txt
 pickle-email-*.html
 /public/certs/*
 /public/reports/*
-/public/certs/import/*
+/public/certs/*
+/public/import/*
 /public/uploads/*
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo

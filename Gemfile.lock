@@ -248,7 +248,7 @@ DEPENDENCIES
   capistrano!
   capistrano-bundler
   capistrano-rails!
-  capistrano-rbenv (~> 2.0)
+  capistrano-rbenv
   capistrano3-unicorn
   carrierwave
   chronic
