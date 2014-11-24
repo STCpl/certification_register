@@ -1,0 +1,14 @@
+<h1>EXPIRES IN THE NEXT 30 DAYS</h1>
+
+Number of certificates expirying <%= @certifications.count %>
+
+		<table>
+			<tr><th>Person</th>	<th>Cert Name</th> <th>Expiry Date</th></tr>
+			<% @certifications.each do |cert|	%>
+				<tr>
+					<td><%= cert.person.last_name%> <%= cert.person.first_name%> </td>
+				  <td><%= cert.name%></td>
+					<td><%= cert.expiry_date																			%>	</td>
+				</tr>
+			<% end %>
+		</table>

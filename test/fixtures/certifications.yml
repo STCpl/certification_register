@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  person_id: 1
+  classification_id: 1
+  attain_date: 2014-11-21
+  expiry_date: 2014-11-21
+  expiry_prior_notification_days: 1
+  notes: MyText
+  extdb: MyString
+
+two:
+  name: MyString
+  person_id: 1
+  classification_id: 1
+  attain_date: 2014-11-21
+  expiry_date: 2014-11-21
+  expiry_prior_notification_days: 1
+  notes: MyText
+  extdb: MyString
