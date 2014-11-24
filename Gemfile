@@ -21,7 +21,6 @@ gem 'chronic'
 #admin magic
 gem 'rails_admin'
 
-gem 'bourbon'
 
 group :development do
  gem 'capistrano', github: 'capistrano/capistrano', ref: 'master'
@@ -46,7 +45,12 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
+
+
+gem 'therubyracer'
+gem "twitter-bootstrap-rails"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
