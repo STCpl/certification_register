@@ -23,8 +23,8 @@ gem 'rails_admin'
 
 
 group :development do
- gem 'capistrano', github: 'capistrano/capistrano', ref: 'master'
- gem 'capistrano-rails', github: 'capistrano/rails', ref: 'master'
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
  gem 'capistrano-bundler'
  gem 'capistrano-rbenv'
  gem 'capistrano3-unicorn'
