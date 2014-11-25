@@ -18,7 +18,7 @@ set :use_sudo, false
 set :deploy_via, :remote_cache
 set :keep_releases, 5
 
-set :linked_files, %w{config/database.yml config/environments/production.rb}
+set :linked_files, %w{config/database.yml config/environments/production.rb config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/import public/reports}
 
 
