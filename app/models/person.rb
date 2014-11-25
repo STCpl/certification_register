@@ -1,5 +1,4 @@
 class Person < ActiveRecord::Base
-  has_many :incidents
   has_many :certifications
   belongs_to :company
   belongs_to :state

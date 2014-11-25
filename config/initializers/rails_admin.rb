@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :cancan
 
   ## == PaperTrail ==
-  config.audit_with :paper_trail, 'Incident', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+  config.audit_with :paper_trail, 'Certification', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
@@ -32,125 +32,78 @@ RailsAdmin.config do |config|
     history_show
   end
 
-  config.model 'Incident' do
+  config.model 'Certification' do
     weight -10
-    navigation_label 'Incidents related'
+    navigation_label 'Certifications related'
     
     list do
-      field :date
-      field :name
-      field :summary
-      field :job
+      field :expiry_date
+      field :description
+      field :person
     end
 
     edit do
-      group :job_location do        
-        field :job
+      field :person
+      field :description do
+        help 'something short'
       end
-      group :incident_details do
-        field :person
-        field :date
-        field :site_location do label "Where abouts on site did this occur?" end
-        field :summary do label "A statement of what happend" end
-        field :injury
-        field :outcome
+      field :notes
+      
+      field :classification do
+        help 'type of certification'
       end
+      field :number do
+        help 'example: Drivers license number'
+      end
+      field :attain_date
+      field :expiry_date
 
       group :attachments do
         field :attachment_1
         field :attachment_2
         field :attachment_3
         field :attachment_4
-        field :attachment_5
-      end
+      end      
     end
 
     show do
       field :person
-      field :date
-      field :job
-      field :site_location
-      field :summary
-      field :injury
-      field :outcome
+      field :description
+      field :notes
+      
+      field :classification
+      field :number
+      field :attain_date
+      field :expiry_date
 
-     group :attachments do
+      group :attachments do
         field :attachment_1
         field :attachment_2
         field :attachment_3
         field :attachment_4
-        field :attachment_5
-      end
+      end  
     end
   end
 
 
-  config.model 'Injury' do
-    navigation_label 'Incidents related'
-    label "Injury Types"
-    weight +1
+  config.model 'Classification' do    
+    navigation_label 'Certifications related'
+    label "Cert Classifcations"
     list do
       field :name
-    end
+     end
 
     edit do
-      group :default do
-        label "Types of injuries"
-        help "Not quite sure what should go here - jb"
-        field :name do
-          label "Injury name"          
-        end
-      end
-    end
-  end
-
-  config.model 'Outcome' do
-    navigation_label 'Incidents related'
-    label "Outcome Types"
-    weight +1
-    
-    list do
-      field :name
+      field :code
       field :description
     end
 
-    edit do
-      group :default do
-        field :name do
-          label "Abbreviation"
-        end
-        field :decription do
-          label "Long name for what it is"
-        end
-      end
+    show do
+      field :code
+      field :description
     end
   end
 
-
-  config.model 'Job' do
-    weight +10
-    list do
-      field :name
-      field :state      
-    end
-
-  end
-
-
-  config.model 'State' do
-    weight +10
-    list do
-      field :name
-    end
-
-    edit do
-      group :default do
-        field :name do
-          label "State name"
-        end
-      end
-    end
-  end
 
   config.model 'Person' do
     list do
