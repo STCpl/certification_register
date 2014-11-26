@@ -38,20 +38,14 @@ RailsAdmin.config do |config|
     
     list do
       scopes [:active?, :non_active?, :expires_within_30days, :expires_within_60days]
-      
-      field :person      
-      field :description
+          
+      field :name
       field :expiry_date
     end
 
     edit do
       field :person
       field :active
-
-      field :description do
-        help 'something short'
-      end
-      field :notes
       
       field :classification do
         help 'type of certification'
@@ -61,6 +55,9 @@ RailsAdmin.config do |config|
       end
       field :attain_date
       field :expiry_date
+
+      field :notes
+      
 
       group :attachments do
         field :attachment_1
@@ -75,6 +72,7 @@ RailsAdmin.config do |config|
       field :description
       field :notes
       
+      field :active
       field :classification
       field :active
       field :number
@@ -132,7 +130,8 @@ RailsAdmin.config do |config|
  
     edit do
       group :default do        
-        field :name do label "Name of person" end
+        field :first_name
+        field :last_name        
         field :job_title
         field :company
         field :email
