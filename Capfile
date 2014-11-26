@@ -4,10 +4,12 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/setup'
 require 'capistrano/deploy'
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
+
 require 'capistrano/rails'
+require 'capistrano/bundler'
+require 'capistrano/rbenv'
 require 'capistrano/puma'
+
 #require 'capistrano3/unicorn'
 
 # Include tasks from other gems included in your Gemfile
