@@ -28,7 +28,7 @@ gem 'capistrano-rails', '~> 1.1'
  gem 'capistrano-bundler'
  gem 'capistrano-rbenv'
  #gem 'capistrano3-unicorn'
- gem 'capistrano-puma'
+ gem 'capistrano3-puma'
  gem 'pry'
 end
 
