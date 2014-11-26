@@ -93,6 +93,12 @@ namespace :import_docchase_db do
 				puts 'skipping'
 				else
 					record = Certification.find_or_create_by(extdb: r[0].to_i)
+					if(r[1].downcase == "true") 
+					  record.active = 1					
+					else
+					  record.active  = 0 
+					end
+					
 					record.number = r[4].to_s
 					#record.is_active = r[1]
 					record.description = r[5].to_s

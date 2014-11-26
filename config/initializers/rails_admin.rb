@@ -37,13 +37,17 @@ RailsAdmin.config do |config|
     navigation_label 'Certifications related'
     
     list do
-      field :expiry_date
+      scopes [:active?, :non_active?, :expires_within_30days, :expires_within_60days]
+      
+      field :person      
       field :description
-      field :person
+      field :expiry_date
     end
 
     edit do
       field :person
+      field :active
+
       field :description do
         help 'something short'
       end
@@ -72,6 +76,7 @@ RailsAdmin.config do |config|
       field :notes
       
       field :classification
+      field :active
       field :number
       field :attain_date
       field :expiry_date

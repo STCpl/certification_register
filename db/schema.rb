@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126001802) do
+ActiveRecord::Schema.define(version: 20141126053405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,13 @@ ActiveRecord::Schema.define(version: 20141126001802) do
     t.string   "attachment_2"
     t.string   "attachment_3"
     t.string   "attachment_4"
+    t.boolean  "active"
   end
+
+  add_index "certifications", ["active"], name: "index_certifications_on_active", using: :btree
+  add_index "certifications", ["attain_date"], name: "index_certifications_on_attain_date", using: :btree
+  add_index "certifications", ["expiry_date"], name: "index_certifications_on_expiry_date", using: :btree
+  add_index "certifications", ["name"], name: "index_certifications_on_name", using: :btree
 
   create_table "classifications", force: true do |t|
     t.string   "name"
@@ -166,6 +172,9 @@ ActiveRecord::Schema.define(version: 20141126001802) do
     t.string   "last_name"
     t.date     "birthdate"
   end
+
+  add_index "people", ["first_name"], name: "index_people_on_first_name", using: :btree
+  add_index "people", ["last_name"], name: "index_people_on_last_name", using: :btree
 
   create_table "states", force: true do |t|
     t.string   "name"

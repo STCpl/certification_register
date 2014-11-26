@@ -15,8 +15,12 @@ class Certification < ActiveRecord::Base
 
   validates :description, presence: true
   validates :classification, presence: true
-
   
+  scope :active?, -> { where(active: TRUE) }
+  scope :non_active?, -> { where(active: FALSE) }
+  scope :expires_within_30days, -> { between_times(Time.zone.now, Time.zone.now + 30.days, field: :expiry_date).order("expiry_date") }
+  scope :expires_within_60days, -> { between_times(Time.zone.now, Time.zone.now + 60.days, field: :expiry_date).order("expiry_date") }
+
 	after_validation   do |cert|
     if !cert.person.blank?
       if !cert.classification.to_s == ''
