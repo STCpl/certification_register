@@ -91,16 +91,18 @@ RailsAdmin.config do |config|
     label "Cert Classifcations"
     list do
       field :name
+      field :type
      end
 
     edit do
-      field :code
-      field :description
+      field :type
+      field :code      
     end
 
     show do
       field :code
-      field :description
+      field :type
+      field :certifications
     end
   end
 
@@ -109,11 +111,22 @@ RailsAdmin.config do |config|
     list do
       field :name      
     end
+
+    show do 
+      group :default do        
+        field :name do label "Name of person" end
+        field :certifications
+        field :job_title
+        field :company
+        field :email
+        field :phone_number
+        field :mobile_number
+        field :state
+      end    
+    end
  
     edit do
-      group :default do
-        label "Team information"
-        help "Please fill all information related to your team..."
+      group :default do        
         field :name do label "Name of person" end
         field :job_title
         field :company

@@ -8,7 +8,8 @@ require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
-require 'capistrano3/unicorn'
+require 'capistrano/puma'
+#require 'capistrano3/unicorn'
 
 # Include tasks from other gems included in your Gemfile
 #

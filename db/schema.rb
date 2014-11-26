@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125042248) do
+ActiveRecord::Schema.define(version: 20141126001802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141125042248) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type_id"
   end
 
   create_table "companies", force: true do |t|
@@ -173,6 +174,12 @@ ActiveRecord::Schema.define(version: 20141125042248) do
   end
 
   add_index "states", ["name"], name: "index_states_on_name", using: :btree
+
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "versions", force: true do |t|
     t.string   "item_type",  null: false

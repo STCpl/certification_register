@@ -74,11 +74,10 @@ namespace :import_docchase_db do
 				puts 'skipping'
 				else
 					#r.pry
-					record = Classification.find_or_create_by(code: r[0].to_s.upcase)
+					record = c.find_or_create_by(code: r[0].to_s.upcase)
+					type = Type.find_or_create_by(name: r[1].to_s)
 					#record.code = r[0].to_s.upcase
-					record.description = r[1].to_s				
-					#record.name = "#{record.name}"
-					puts record.name
+					#record.name = "#{record.name}"					
 					record.save
 				end
 		end
@@ -101,7 +100,18 @@ namespace :import_docchase_db do
 
 					record.person = Person.find_or_create_by(extdb: r[2].to_i)
 
-					record.classification = Classification.find_or_create_by(code: r[6].to_s.upcase)
+					matches = /(.*) - (.*)/.match(r[5].to_s)
+					if !matches.nil?
+						type_string = matches[1]
+						code_string = matches[2]
+					else
+						type_string = r[5].to_s
+						code_string = r[6].to_s
+					end
+
+					type = Type.find_or_create_by(name: type_string)
+					record.classification = Classification.find_or_create_by(code: code_string, type: type)
+
 					record.attain_date = Chronic.parse(r[7])
 					record.expiry_date = Chronic.parse(r[8])
 					record.expiry_prior_notification_days = r[9]

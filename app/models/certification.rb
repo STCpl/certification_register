@@ -5,6 +5,7 @@ class Certification < ActiveRecord::Base
 
 	belongs_to :person
 	belongs_to :classification
+  #belongs_to :type
   #has_many :documents
 
   mount_uploader :attachment_1, AttachmentUploader
