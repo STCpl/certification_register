@@ -226,8 +226,8 @@ namespace :import_docchase_db do
 
 	task :report  => :environment do
 		report = ODFReport::Report.new("public/reports/tset.odt") do |r|
-		  r.add_field :user_name, 'Usser naaaaaaame'
-		  r.add_field :address, "My new address"
+		  r.add_field :user_name, 'John Hewitt'
+		  r.add_field :address, "0284uojf;lasjdlfk;"
 		end
 
 		report.generate("public/reports/new_ticket.odt")

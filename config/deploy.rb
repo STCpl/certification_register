@@ -2,6 +2,8 @@
 lock '3.2.1'
 
 set :application, 'certification_register'
+set :user,            'deploy'
+
 set :repo_url, 'git@github.com:STCpl/certification_register.git'
 
 
@@ -23,7 +25,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 #set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :puma_workers,    2
 set :pty,             true
 
 # Don't change these unless you know what you're doing
