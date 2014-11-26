@@ -3,6 +3,8 @@ role :web, %w{deploy@tenderchase.lanskey.com.au}
 role :db, %w{deploy@tenderchase.lanskey.com.au}
 
 
+set :deploy_to, '/home/deploy/certification_register'
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
