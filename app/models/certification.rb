@@ -26,7 +26,7 @@ class Certification < ActiveRecord::Base
       if !cert.classification.to_s == ''
   	    cert.name = "#{cert.person.first_name} #{cert.person.last_name} | #{cert.classification.code} | #{cert.description}"
       else
-      	cert.name = "#{cert.person.first_name} #{cert.person.last_name} | #{cert.description}"
+      	cert.name = "#{cert.person.first_name} #{cert.person.last_name} | #{cert.classification.name}"
       end 
     end
   end
