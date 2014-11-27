@@ -1,14 +1,19 @@
-<h1>EXPIRES IN THE NEXT 30 DAYS</h1>
+<h2>Certificates expiring in the next 30 days</h2>
 
-Number of certificates expirying <%= @certifications.count %>
+<ul>
+<li>Number of certificates expirying <b><%= @certifications.count %></b> </li>
+<li>Report Date: <b><%=Time.now %></b> </li>
+</ul>
 
-		<table>
-			<tr><th>Person</th>	<th>Cert Name</th> <th>Expiry Date</th></tr>
+		<table class="table table-striped">
+			<tr><th>Person</th> <th>State</th>	<th>Cert Name</th><th>Expiry Date</th><th>Attain Date</th></tr>
 			<% @certifications.each do |cert|	%>
 				<tr>
 					<td><%= cert.person.last_name%> <%= cert.person.first_name%> </td>
-				  <td><%= cert.name%></td>
-					<td><%= cert.expiry_date																			%>	</td>
+				  <td><%= cert.person.state.name%>	</td>
+				  <td><%= cert.classification.name %></td>
+					<td><%= cert.expiry_date%>	</td>
+					<td><%= cert.attain_date%>	</td>
 				</tr>
 			<% end %>
 		</table>

@@ -13,7 +13,7 @@ class Certification < ActiveRecord::Base
   mount_uploader :attachment_3, AttachmentUploader
   mount_uploader :attachment_4, AttachmentUploader
 
-  validates :description, presence: true
+#  validates :description, presence: true
   validates :classification, presence: true
   
   scope :active?, -> { where(active: TRUE) }
