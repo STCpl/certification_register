@@ -15,10 +15,11 @@ RailsAdmin.config do |config|
   config.audit_with :paper_trail, 'Certification', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
+
+
     new
     export
     bulk_delete
@@ -32,12 +33,16 @@ RailsAdmin.config do |config|
     history_show
   end
 
+ config.navigation_static_links = {
+    'Expires in 30 days report' => '/expires_in_one_month'
+  }
+
   config.model 'Certification' do
     weight -10
     navigation_label 'Certifications related'
     
     list do
-      scopes [:active?, :non_active?, :expires_within_30days, :expires_within_60days, :default]
+      scopes [:active?, :non_active?, :expires_within_30days, :expires_within_60days, :everything]
 
       field :name
       field :attain_date
@@ -113,8 +118,13 @@ RailsAdmin.config do |config|
 
 
   config.model 'Person' do
+    
+
     list do
-      field :name      
+      scopes [:active?, :non_active?]
+      field :name
+      field :state
+      field :company      
     end
 
     show do 

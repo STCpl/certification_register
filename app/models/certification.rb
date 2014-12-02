@@ -19,7 +19,8 @@ class Certification < ActiveRecord::Base
 
   validates :person, presence: true
   validates :classification, presence: true
-  
+
+  scope :everything, -> { }
   scope :active?, -> { where(active: TRUE).where.not(attain_date: nil).order(attain_date: :asc) }
   scope :non_active?, -> { where(active: FALSE).where.not(attain_date: nil).order(attain_date: :asc) }
   scope :expires_within_30days, -> { where(active: TRUE).where.not(attain_date: nil).between_times(Time.zone.now, Time.zone.now + 30.days, field: :expiry_date).order("state_id ASC", "expiry_date ASC") }

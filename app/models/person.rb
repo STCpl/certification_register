@@ -3,7 +3,12 @@ class Person < ActiveRecord::Base
   belongs_to :company
   belongs_to :state
 
-  #validates :name, presence: true
+  scope :active?, -> { where(active: true) }
+  scope :non_active?, -> { where(active: false) }
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
 
   after_validation do |person|
     if !person.company.blank?

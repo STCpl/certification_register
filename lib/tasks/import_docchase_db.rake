@@ -243,19 +243,26 @@ namespace :import_docchase_db do
 
 
 	task :cleanup  => :environment do
+
+		#deactivate all old users
+		people = Person.all
+		people.update_all( {:active => false} )
+		# activate only people with active certs
+	  certs = Certification.where(:active => true)
+		certs.each do |c| 
+			person = c.person
+			puts "Activating #{person.name}"
+			person.active = true
+			person.save
+		end
+		#validate all certs to fix states
 		certs = Certification.all
 		certs.each do |c|
 			c.valid?
+			puts "validating #{c.name}"
 			c.save
 		end
 
-		#delete all old users
-		people = Person.all
-		people.each do |person| 
-			if person.certifications[0].nil? 
-				puts "Erasing #{person.name}"
-			end
-		end
 	end
 
 
