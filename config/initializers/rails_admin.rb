@@ -130,6 +130,7 @@ RailsAdmin.config do |config|
     show do 
       group :default do        
         field :name do label "Name of person" end
+
         field :certifications
         field :job_title
         field :company
@@ -144,6 +145,7 @@ RailsAdmin.config do |config|
       group :default do        
         field :first_name
         field :last_name        
+        field :active
         field :job_title
         field :company
         field :email

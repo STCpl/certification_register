@@ -33,10 +33,21 @@ class Certification < ActiveRecord::Base
       else
       	cert.name = "#{cert.person.first_name} #{cert.person.last_name} | #{cert.classification.name}"
       end 
-    end
-    cert.state = person.state
+      cert.state = person.state
+    end    
   end
 
+  after_initialize do
+    if new_record?
+      self.active = true
+      if self.attain_date.blank?
+        self.attain_date = Time.zone.now      
+      end
+      if self.expiry_date.blank?
+        self.expiry_date = Time.zone.now + 99.years
+      end
+    end
+  end
 
   
 end
