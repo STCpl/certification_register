@@ -5,7 +5,7 @@ class CertificationsController < ApplicationController
 	end
 
 	def expires_in_one_month
-		@certifications =  Certification.between_times(Time.zone.now, Time.zone.now + 30.days, field: :expiry_date).order("expiry_date")
+		@certifications =  Certification.expires_within_30days
 	end
 
 

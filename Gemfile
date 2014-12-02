@@ -30,6 +30,7 @@ gem 'capistrano-rails', '~> 1.1'
  #gem 'capistrano3-unicorn'
  gem 'capistrano3-puma'
  gem 'pry'
+ gem "rails-erd"
 end
 
 group :development, :test do

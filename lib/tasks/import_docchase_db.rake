@@ -242,4 +242,21 @@ namespace :import_docchase_db do
 
 
 
+	task :cleanup  => :environment do
+		certs = Certification.all
+		certs.each do |c|
+			c.valid?
+			c.save
+		end
+
+		#delete all old users
+		people = Person.all
+		people.each do |person| 
+			if person.certifications[0].nil? 
+				puts "Erasing #{person.name}"
+			end
+		end
+	end
+
+
 end

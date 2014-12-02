@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126053405) do
+ActiveRecord::Schema.define(version: 20141202050528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141126053405) do
     t.string   "attachment_3"
     t.string   "attachment_4"
     t.boolean  "active"
+    t.integer  "state_id"
   end
 
   add_index "certifications", ["active"], name: "index_certifications_on_active", using: :btree
