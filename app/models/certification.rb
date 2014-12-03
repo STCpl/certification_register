@@ -14,11 +14,13 @@ class Certification < ActiveRecord::Base
   mount_uploader :attachment_3, AttachmentUploader
   mount_uploader :attachment_4, AttachmentUploader
 
-  #validates :attain_date, presence: true
-  #validates :expiry_date, presence: true
-
+  validates :attain_date, presence: true
+  #validates :expiry_date, presence: true 
   validates :person, presence: true
   validates :classification, presence: true
+
+## make sure all certificates visible are ones where people are active
+  default_scope { includes(:person).where(people: {active: true}).references(:person) }
 
   scope :everything, -> { }
   scope :active?, -> { where(active: TRUE).where.not(attain_date: nil).order(attain_date: :asc) }
@@ -43,9 +45,9 @@ class Certification < ActiveRecord::Base
       if self.attain_date.blank?
         self.attain_date = Time.zone.now      
       end
-      if self.expiry_date.blank?
-        self.expiry_date = Time.zone.now + 99.years
-      end
+      #if self.expiry_date.blank?
+      #  self.expiry_date = Time.zone.now + 99.years
+      #end
     end
   end
 

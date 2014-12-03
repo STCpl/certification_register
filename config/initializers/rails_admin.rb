@@ -106,12 +106,14 @@ RailsAdmin.config do |config|
 
     edit do
       field :type
-      field :code      
+      field :code
+      field :notes
     end
 
     show do
-      field :code
       field :type
+      field :code      
+      field :notes
       field :certifications
     end
   end
