@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207234932) do
+ActiveRecord::Schema.define(version: 20141208005724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 20141207234932) do
     t.string   "pobox_state"
     t.integer  "pobox_postcode"
     t.string   "website"
+    t.boolean  "active"
   end
 
+  add_index "companies", ["active"], name: "index_companies_on_active", using: :btree
   add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
 
   create_table "documents", force: true do |t|

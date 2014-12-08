@@ -5,4 +5,7 @@ class Company < ActiveRecord::Base
   validates :name, presence: true
   validates :state, presence: true
 
+  scope :active, -> { where(active: true) }
+  scope :non_active, -> { where(active: false) }
+
 end

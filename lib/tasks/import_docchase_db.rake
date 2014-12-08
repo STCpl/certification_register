@@ -46,6 +46,13 @@ namespace :import_docchase_db do
 				puts 'skipping'
 				else
 					company = Company.find_or_create_by(extdb: r[0].to_s)
+
+					if(r[1].downcase == "true") 
+					  company.active = 1					
+					else
+					  company.active  = 0 
+					end
+					
 					company.name = r[2]
 					
 					company.abn = r[6]					
@@ -59,7 +66,7 @@ namespace :import_docchase_db do
 					company.mobile_number = r[23]
 					company.fax_number = r[24]
 
-					puts "#{company.name} - street:#{company.street} - email:#{company.email}"
+					puts "#{company.name} - #{company.active} - street:#{company.street} - email:#{company.email}"
 					company.save
 				end
 		end
