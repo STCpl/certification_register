@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
-  has_many :certifications
+  has_many :certifications  
+
   belongs_to :company
   belongs_to :state
 

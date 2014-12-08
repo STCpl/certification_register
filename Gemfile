@@ -21,6 +21,9 @@ gem 'chronic'
 #admin magic
 gem 'rails_admin'
 
+#easy smtp emailing
+gem 'mail'
+
 
 group :development do
 gem 'capistrano',  '~> 3.1'
