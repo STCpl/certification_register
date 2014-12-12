@@ -16,6 +16,16 @@ pickle-email-*.html
 /public/import/*
 /public/uploads/*
 
+*.gem
+*.rbc
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+.DS_Store
+
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
 config/secrets.yml
