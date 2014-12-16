@@ -3,7 +3,7 @@ namespace :import_docchase_db do
 	desc "todo"
 	
 	task :people  => :environment do
-		s = Roo::Spreadsheet.open("public/import/tblContacts.xls")
+		s = Roo::Spreadsheet.open("/tmp/tblContacts.xls")
 		source = s.sheet(0)
 #		source.pry
 		source.each do |r|

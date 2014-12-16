@@ -18,6 +18,10 @@ class Person < ActiveRecord::Base
     else
     	person.name = "#{person.first_name} #{person.last_name}"
     end
+    
+    if person.active.nil?
+	person.active = TRUE
+    end
   end
 
 
